@@ -15,14 +15,15 @@
   --blu: #4500ED;        /* Blu Fluel */
   --orange: #FF8600;     /* gradient end */
   --lavender: #C9C2FF;   /* gradient midpoint, text on blu */
-  --night: #1B1052;     /* deep Blu Fluel, replaces black */
+  --night: #352F44;     /* blue-black from the brand indigo: the only dark contrast tone */
   --paper: #F5F3FA;
-  --ink: #140B33;
-  --muted: #5C5677;
+  --ink: #352F44;
+  --muted: #6A6480;
   --line: #DAD5EA;
   --display: "Rajdhani", sans-serif;
   --body: "Inter", system-ui, sans-serif;
   --wrap: 1180px;
+  --gap: 20px;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--paper); }
@@ -62,30 +63,36 @@ nav.top ul a:hover { text-decoration: underline; text-underline-offset: 5px; }
 
 /* Section chrome */
 section.block { padding-top: 96px; }
-.head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; }
+.head { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: var(--gap); row-gap: 16px; align-items: end; margin-bottom: 36px; }
+.head h2 { grid-column: 1 / 3; }
+.head > p, .head > .filters { grid-column: 3; }
+#work .head h2 { grid-column: 1 / 2; }
+#work .head > .filters { grid-column: 2 / 4; justify-content: flex-end; }
 .head h2 { display: flex; align-items: center; gap: .35em; font: 700 clamp(2.2rem, 5vw, 3.2rem)/1 var(--display); margin: 0; }
 .head h2 .sym { width: .7em; height: .7em; }
 .head p { margin: 0; max-width: 52ch; color: var(--muted); }
 
-/* Capabilities: the brand's own service artwork */
-.caps { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 16px; }
-.cap { margin: 0; position: relative; }
-.cap img { width: 100%; height: auto; display: block; aspect-ratio: 1280 / 769; border-radius: 18px; }
-.cap figcaption { padding: 12px 4px 0; font-size: .92rem; color: var(--muted); }
-.cap.lead { border-radius: 18px; overflow: hidden; background: var(--blu); color: #fff; grid-row: span 2; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; min-height: 360px; }
-.cap.lead svg { position: absolute; width: 78%; height: auto; right: -14%; top: -10%; }
-.cap.lead b { font-size: 2rem; position: relative; }
-.cap.lead p { position: relative; margin: 8px 0 0; color: var(--lavender); max-width: 32ch; }
+/* Capabilities: six identical tiles built from the brand symbols */
+.caps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); list-style: none; margin: 0; padding: 0; }
+/* subgrid: icon, title, text and links sit on shared rows across each line of tiles */
+.cap { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; padding: 28px; background: #fff; border: 1px solid var(--line); border-radius: 18px; }
+.cap > svg { width: 56px; height: 56px; margin-bottom: 28px; }
+.cap h3 { font: 700 1.6rem/1.05 var(--display); margin: 0 0 10px; }
+.cap p { margin: 0 0 22px; color: var(--muted); font-size: .95rem; }
+.cap ul { list-style: none; margin: 0; padding: 16px 0 0; border-top: 1px solid var(--line); display: grid; gap: 8px; align-content: start; }
+.cap ul a { display: flex; align-items: baseline; gap: .5em; font-size: .92rem; font-weight: 500; color: var(--blu); text-decoration: none; }
+.cap ul a::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(var(--blu), var(--orange)); transform: translateY(-2px); }
+.cap ul a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Featured work */
-.featured { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.feat { position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 300px; padding: 26px 26px 24px; border-radius: 18px; background: var(--blu); color: #fff; text-decoration: none; isolation: isolate; transition: transform .2s; }
+.featured { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap); }
+.feat { position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 320px; padding: 128px 28px 28px; border-radius: 18px; background: var(--blu); color: #fff; text-decoration: none; isolation: isolate; transition: transform .2s; }
 .feat:hover { transform: translateY(-4px); }
 .feat > svg { position: absolute; z-index: -1; width: 170px; height: 170px; right: -42px; top: -42px; transition: transform .3s; }
 .feat:hover > svg { transform: rotate(-8deg) scale(1.06); }
-.feat .meta { display: flex; gap: 14px; margin-top: auto; font: 600 1rem var(--display); color: var(--lavender); }
-.feat h3 { font: 700 1.75rem/1.02 var(--display); margin: 6px 0 10px; max-width: 14ch; }
-.feat p { margin: 0; font-size: .93rem; max-width: 34ch; color: rgba(255,255,255,.88); }
+.feat .meta { display: flex; gap: 14px; font: 600 1rem var(--display); color: var(--lavender); }
+.feat h3 { font: 700 1.75rem/1.02 var(--display); margin: 6px 0 12px; }
+.feat p { margin: 0; font-size: .93rem; color: rgba(255,255,255,.88); }
 .feat:nth-child(3n+2) { background: var(--night); }
 
 /* Full project log */
@@ -118,7 +125,8 @@ section.block { padding-top: 96px; }
 
 @media (max-width: 960px) {
   .caps { grid-template-columns: 1fr 1fr; }
-  .cap.lead { grid-column: 1 / -1; grid-row: auto; min-height: 280px; }
+  .head { grid-template-columns: 1fr; }
+  .head h2, .head > p, .head > .filters, #work .head h2, #work .head > .filters { grid-column: 1; justify-content: flex-start; }
   .featured { grid-template-columns: 1fr 1fr; }
   .proj { grid-template-columns: 90px 1fr; }
   .proj aside { grid-column: 2; }
@@ -145,11 +153,13 @@ section.block { padding-top: 96px; }
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
     <linearGradient id="fg" gradientUnits="userSpaceOnUse" x1="0" y1="4" x2="0" y2="96"><stop offset="0" stop-color="#4500ED"/><stop offset="1" stop-color="#FF8600"/></linearGradient>
+    <linearGradient id="fg-pitt" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="348"><stop offset="0" stop-color="#4500ED"/><stop offset="1" stop-color="#FF8600"/></linearGradient>
     <linearGradient id="fg-soft" gradientUnits="userSpaceOnUse" x1="0" y1="4" x2="0" y2="96"><stop offset="0" stop-color="#C9C2FF"/><stop offset="1" stop-color="#FF8600"/></linearGradient>
     <symbol id="s-innovazione" viewBox="0 0 100 100"><path d="M27 27H73V73M73 27L27 73" fill="none" stroke="var(--g, url(#fg))" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="s-aiuto" viewBox="0 0 100 100"><path d="M50 13V87M13 50H87" fill="none" stroke="var(--g, url(#fg))" stroke-width="24" stroke-linecap="round"/></symbol>
     <symbol id="s-consistenza" viewBox="0 0 100 100"><path fill="var(--g, url(#fg))" fill-rule="evenodd" d="M28 8H72A20 20 0 0 1 92 28V72A20 20 0 0 1 72 92H28A20 20 0 0 1 8 72V28A20 20 0 0 1 28 8ZM39 39V61H61V39Z"/></symbol>
     <symbol id="s-persone" viewBox="0 0 100 100"><g fill="var(--g, url(#fg))"><circle cx="50" cy="50" r="36"/><circle cx="50.0" cy="19.0" r="16"/><circle cx="68.2" cy="24.9" r="16"/><circle cx="79.5" cy="40.4" r="16"/><circle cx="79.5" cy="59.6" r="16"/><circle cx="68.2" cy="75.1" r="16"/><circle cx="50.0" cy="81.0" r="16"/><circle cx="31.8" cy="75.1" r="16"/><circle cx="20.5" cy="59.6" r="16"/><circle cx="20.5" cy="40.4" r="16"/><circle cx="31.8" cy="24.9" r="16"/></g></symbol>
+    <symbol id="s-pittogramma" viewBox="-20 -146 640 640"><path fill="var(--g, url(#fg-pitt))" d="M149.755 347.472C102.773 347.472 66.0685 334.258 39.6411 307.831C13.2137 280.914 0 242.741 0 193.312V0H63.6215V190.865C63.6215 257.423 92.4959 291.191 149.755 291.68C150.245 291.68 450.245 291.68 450.734 291.68C508.483 291.68 537.357 257.912 537.357 190.865V0H600V193.312C600 242.741 586.786 280.914 560.848 307.341C534.421 334.258 497.716 347.472 450.734 347.472C450.734 347.472 150.245 347.472 149.755 347.472Z"/></symbol>
     <symbol id="s-codice" viewBox="0 0 100 100"><line x1="22" y1="22" x2="78" y2="78" stroke="var(--g, url(#fg))" stroke-width="24" stroke-linecap="round"/></symbol>
   </defs>
 </svg>
@@ -192,17 +202,7 @@ section.block { padding-top: 96px; }
       <h2><svg class="sym" aria-hidden="true"><use href="#s-codice"/></svg><span data-t="skillsTitle"></span></h2>
       <p data-t="skillsText"></p>
     </div>
-    <div class="caps">
-      <figure class="cap lead">
-        <svg viewBox="0 0 100 100" aria-hidden="true" style="--g:url(#fg-soft)"><use href="#s-consistenza"/></svg>
-        <b data-t="capLlm"></b>
-        <p data-t="capLlmText"></p>
-      </figure>
-      <figure class="cap"><img src="assets/service-nlp.jpg" alt="natural language processing" loading="lazy" width="960" height="577"><figcaption data-t="capNlpText"></figcaption></figure>
-      <figure class="cap"><img src="assets/service-predictive.jpg" alt="predictive analytics" loading="lazy" width="960" height="577"><figcaption data-t="capPredText"></figcaption></figure>
-      <figure class="cap"><img src="assets/service-vision.jpg" alt="computer vision" loading="lazy" width="960" height="577"><figcaption data-t="capCvText"></figcaption></figure>
-      <figure class="cap"><img src="assets/service-audio.jpg" alt="audio recognition" loading="lazy" width="960" height="577"><figcaption data-t="capAudioText"></figcaption></figure>
-    </div>
+    <ul class="caps" id="caps"></ul>
   </section>
 
   <section class="block wrap" id="featured">
@@ -254,11 +254,6 @@ const T = {
     cta: "Esplora i progetti",
     skillsTitle: "competenze",
     skillsText: "Dalla ricerca al servizio in produzione, con le applicazioni web e mobile che rendono l'AI utilizzabile.",
-    capLlm: "llm, rag e agenti", capLlmText: "Assistenti che rispondono citando le fonti, sistemi multi-agente e automazione di procedure.",
-    capNlp: "natural language processing", capNlpText: "Classificazione, entità e analisi di documenti.",
-    capPred: "predictive analytics", capPredText: "Previsioni su serie storiche, sensori e magazzino.",
-    capCv: "computer vision", capCvText: "Riconoscimento di prodotti, documenti e caratteri.",
-    capAudio: "audio recognition", capAudioText: "Voicebot, sintesi e riconoscimento vocale.",
     featTitle: "in evidenza", featText: "I prodotti e i progetti più rappresentativi.",
     workTitle: "tutti i progetti",
     stackTitle: "tecnologie",
@@ -279,11 +274,6 @@ const T = {
     cta: "Explore the work",
     skillsTitle: "expertise",
     skillsText: "From research to production services, with the web and mobile apps that put AI to work.",
-    capLlm: "llm, rag and agents", capLlmText: "Assistants that answer with cited sources, multi-agent systems and process automation.",
-    capNlp: "natural language processing", capNlpText: "Classification, entities and document analysis.",
-    capPred: "predictive analytics", capPredText: "Forecasting for time series, sensors and inventory.",
-    capCv: "computer vision", capCvText: "Recognising products, documents and characters.",
-    capAudio: "audio recognition", capAudioText: "Voicebots, speech synthesis and recognition.",
     featTitle: "featured", featText: "Our most representative products and projects.",
     workTitle: "all projects",
     stackTitle: "tech stack",
@@ -298,6 +288,26 @@ const T = {
     nda: "Client names, data and confidential details are omitted or generalised to honour non-disclosure agreements."
   }
 };
+const CAPS = [
+  { sym: "innovazione", ids: ["regula", "knai", "heritage-rag"],
+    it: ["llm, rag e agenti", "Assistenti che rispondono citando le fonti, agenti che eseguono procedure, sistemi multi-agente."],
+    en: ["llm, rag and agents", "Assistants that answer with cited sources, agents that run procedures, multi-agent systems."] },
+  { sym: "codice", ids: ["ai-legal", "las", "bank-rag"],
+    it: ["linguaggio naturale", "Lettura di documenti, riconoscimento di entità e classificazione di testi in italiano."],
+    en: ["natural language", "Document reading, entity recognition and Italian text classification."] },
+  { sym: "consistenza", ids: ["easy-queue", "shelf-vision", "manuscripts"],
+    it: ["visione artificiale", "Riconoscimento di prodotti, documenti e caratteri, anche su dispositivi edge."],
+    en: ["computer vision", "Recognising products, documents and characters, on edge devices too."] },
+  { sym: "aiuto", ids: ["obsolescence", "air-quality", "materials"],
+    it: ["analisi predittiva", "Previsioni su serie storiche, sensori IoT, magazzino e processi produttivi."],
+    en: ["predictive analytics", "Forecasting for time series, IoT sensors, inventory and production."] },
+  { sym: "persone", ids: ["voicebot", "voice-dating", "short-video"],
+    it: ["voce e audio", "Voicebot, sintesi e riconoscimento vocale, contenuti audio e video generati."],
+    en: ["voice and audio", "Voicebots, speech synthesis and recognition, generated audio and video."] },
+  { sym: "pittogramma", ids: ["boostme", "fitness-recomp", "creative-cards"],
+    it: ["prodotti web e mobile", "Le applicazioni che portano l'AI agli utenti: dal backend su cloud all'app sullo store."],
+    en: ["web and mobile products", "The apps that bring AI to users: from cloud backend to the app in the store."] },
+];
 const SYM = { client: "persone", product: "innovazione", rnd: "consistenza", training: "aiuto" };
 const sym = (k, cls = "sym") => `<svg class="${cls}" aria-hidden="true"><use href="#s-${SYM[k]}"/></svg>`;
 const firstSentence = s => s.split(/(?<=\.)\s/)[0];
@@ -306,6 +316,22 @@ let projects = [], lang = "it", filter = "all";
 try { lang = localStorage.getItem("lang") || ""; } catch {}
 lang = new URLSearchParams(location.search).get("lang") || lang || (navigator.language.startsWith("it") ? "it" : "en");
 if (!T[lang]) lang = "en";
+
+function drawCaps() {
+  const byId = Object.fromEntries(projects.map(p => [p.id, p]));
+  $("#caps").replaceChildren(...CAPS.map(c => {
+    const li = document.createElement("li"); li.className = "cap";
+    li.innerHTML = `<svg viewBox="0 0 100 100" aria-hidden="true"><use href="#s-${c.sym}"/></svg><h3></h3><p></p><ul></ul>`;
+    li.querySelector("h3").textContent = c[lang][0];
+    li.querySelector("p").textContent = c[lang][1];
+    li.querySelector("ul").append(...c.ids.filter(id => byId[id]).map(id => {
+      const item = document.createElement("li"), a = document.createElement("a");
+      a.href = `#p-${id}`; a.textContent = byId[id].title[lang].split(":")[0];
+      item.append(a); return item;
+    }));
+    return li;
+  }));
+}
 
 function drawFeatured() {
   const t = T[lang];
@@ -351,7 +377,7 @@ function render() {
   document.documentElement.lang = lang;
   document.querySelectorAll("[data-t]").forEach(n => n.textContent = T[lang][n.dataset.t]);
   document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
-  drawFeatured(); drawProjects();
+  drawCaps(); drawFeatured(); drawProjects();
 }
 
 document.querySelectorAll(".lang button").forEach(b => b.onclick = () => {
