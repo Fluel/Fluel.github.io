@@ -1,0 +1,524 @@
+[
+  {
+    "id": "creative-cards",
+    "year": 2026,
+    "domain": "product",
+    "kind": "product",
+    "title": {
+      "it": "Brainstorming con carte AI",
+      "en": "AI card brainstorming"
+    },
+    "summary": {
+      "it": "Metodo di design thinking con carte fisiche portato su una tela infinita: un mentore LLM legge le carte disposte, trova pattern e sinergie e propone la mossa creativa successiva.",
+      "en": "A physical-card design-thinking method moved onto an infinite canvas: an LLM mentor reads the cards on the table, spots patterns and synergies, and suggests the next creative move."
+    },
+    "stack": [
+      "JavaScript",
+      "LLM",
+      "Canvas"
+    ]
+  },
+  {
+    "id": "fitness-recomp",
+    "year": 2026,
+    "domain": "product",
+    "kind": "product",
+    "title": {
+      "it": "App fitness per la ricomposizione corporea",
+      "en": "Body recomposition fitness app"
+    },
+    "summary": {
+      "it": "App Android e web per allenamento, nutrizione e progressi. Registrazione offline con sincronizzazione idempotente, abbinamento del dispositivo via QR e interfaccia in quattro lingue.",
+      "en": "Android and web app for training, nutrition and progress. Offline logging with idempotent sync, QR device pairing and a UI in four languages."
+    },
+    "stack": [
+      "TypeScript",
+      "Expo",
+      "React Native"
+    ]
+  },
+  {
+    "id": "knai",
+    "year": 2026,
+    "domain": "product",
+    "kind": "product",
+    "title": {
+      "it": "KNAI: procedure web eseguite da agenti",
+      "en": "KNAI: web procedures run by agents"
+    },
+    "summary": {
+      "it": "Si registra una procedura nel browser una volta; KNAI la trasforma in un workflow versionato e approvato, la esegue in sessioni browser isolate e permette a un operatore di supervisionare e intervenire da una dashboard. In sviluppo.",
+      "en": "Record a browser procedure once; KNAI turns it into a versioned, approved workflow, runs it in isolated browser sessions and lets an operator supervise and step in from a dashboard. In development."
+    },
+    "stack": [
+      "Python",
+      "FastAPI",
+      "Next.js",
+      "Playwright",
+      "PostgreSQL"
+    ],
+    "featured": 4
+  },
+  {
+    "id": "ternary-llm",
+    "year": 2026,
+    "domain": "research",
+    "kind": "rnd",
+    "title": {
+      "it": "Quantizzazione ternaria di un LLM da 7B",
+      "en": "Ternary quantisation of a 7B LLM"
+    },
+    "summary": {
+      "it": "Ricerca su una quantizzazione post-training che riduce i pesi a {-1, 0, +1} preservando il comportamento dei layer invece dei singoli pesi, per far girare il modello nel browser via WebGPU.",
+      "en": "Research into post-training quantisation that reduces weights to {-1, 0, +1} while preserving each layer's behaviour rather than individual weights, so the model can run in the browser on WebGPU."
+    },
+    "stack": [
+      "PyTorch",
+      "Qwen",
+      "WebGPU"
+    ]
+  },
+  {
+    "id": "multiagent-architect",
+    "year": 2025,
+    "domain": "research",
+    "kind": "rnd",
+    "title": {
+      "it": "Agenti che progettano software",
+      "en": "Agents that design software"
+    },
+    "summary": {
+      "it": "Proof of concept multi-agente: un agente pianificatore scompone il problema e scrive la struttura dei file, altri nodi specializzati la completano.",
+      "en": "Multi-agent proof of concept: a planner agent breaks the problem down and writes the file structure, then specialised nodes fill it in."
+    },
+    "stack": [
+      "Python",
+      "Multi-agent",
+      "LLM"
+    ]
+  },
+  {
+    "id": "heritage-rag",
+    "year": 2025,
+    "domain": "culture",
+    "kind": "client",
+    "title": {
+      "it": "Storie del patrimonio culturale, a voce",
+      "en": "Cultural heritage stories, spoken"
+    },
+    "summary": {
+      "it": "Per un ente di ricerca: un assistente RAG risponde su secoli di primati storici di una città a partire da schede curate, e con la sintesi vocale diventa una guida parlante.",
+      "en": "For a research institute: a RAG assistant answers questions about a city's historical firsts from curated records, and text-to-speech turns it into a talking guide."
+    },
+    "stack": [
+      "Python",
+      "FastAPI",
+      "RAG",
+      "TTS"
+    ],
+    "featured": 6
+  },
+  {
+    "id": "green-slm",
+    "year": 2025,
+    "domain": "research",
+    "kind": "rnd",
+    "title": {
+      "it": "RAG sostenibile con small language model",
+      "en": "Sustainable RAG with small language models"
+    },
+    "summary": {
+      "it": "Studio su pipeline RAG che usano modelli linguistici piccoli al posto dei grandi: qualità delle risposte a confronto con costo e consumo energetico.",
+      "en": "A study of RAG pipelines that use small language models instead of large ones, weighing answer quality against cost and energy use."
+    },
+    "stack": [
+      "Python",
+      "SLM",
+      "RAG"
+    ]
+  },
+  {
+    "id": "crypto-agent",
+    "year": 2025,
+    "domain": "finance",
+    "kind": "rnd",
+    "title": {
+      "it": "Agente AI per l'analisi dei mercati crypto",
+      "en": "AI agent for crypto market analysis"
+    },
+    "summary": {
+      "it": "Raccolta continua dei dati di mercato su un database time-series, un modello previsionale e un LLM che motiva le decisioni; notifiche e comandi via Telegram.",
+      "en": "Continuous market data collection into a time-series database, a forecasting model and an LLM that explains each decision; alerts and commands over Telegram."
+    },
+    "stack": [
+      "Python",
+      "TimescaleDB",
+      "LLM",
+      "Telegram"
+    ]
+  },
+  {
+    "id": "bank-rag",
+    "year": 2024,
+    "domain": "finance",
+    "kind": "client",
+    "title": {
+      "it": "Assistente documentale per un gruppo bancario",
+      "en": "Document assistant for a banking group"
+    },
+    "summary": {
+      "it": "Retrieval-augmented generation su documentazione interna: gli operatori fanno domande in linguaggio naturale e ottengono risposte con la fonte citata.",
+      "en": "Retrieval-augmented generation over internal documentation: staff ask in plain language and get answers that cite their source."
+    },
+    "stack": [
+      "Python",
+      "RAG",
+      "Vector DB"
+    ]
+  },
+  {
+    "id": "short-video",
+    "year": 2024,
+    "domain": "media",
+    "kind": "product",
+    "title": {
+      "it": "Video brevi generati in automatico",
+      "en": "Automated short-form video"
+    },
+    "summary": {
+      "it": "Un backend che parte da un video MP4 e produce clip verticali pronte per i social, con script parlato e voce generati automaticamente.",
+      "en": "A backend that takes an MP4 and produces vertical clips ready for social, with an auto-generated script and voiceover."
+    },
+    "stack": [
+      "Python",
+      "Computer vision",
+      "TTS",
+      "LLM"
+    ]
+  },
+  {
+    "id": "voicebot",
+    "year": 2024,
+    "domain": "conversational",
+    "kind": "client",
+    "title": {
+      "it": "Voicebot e chatbot",
+      "en": "Voicebots and chatbots"
+    },
+    "summary": {
+      "it": "Assistenti conversazionali vocali e testuali con NLU open source: riconoscimento dell'intento, gestione del dialogo e integrazione con i sistemi aziendali.",
+      "en": "Voice and text assistants built on open-source NLU: intent recognition, dialogue management and integration with company systems."
+    },
+    "stack": [
+      "Rasa",
+      "Python",
+      "Speech"
+    ]
+  },
+  {
+    "id": "regula",
+    "year": 2024,
+    "domain": "finance",
+    "kind": "product",
+    "title": {
+      "it": "REGULA: assistente per la normativa finanziaria",
+      "en": "REGULA: financial regulation assistant"
+    },
+    "summary": {
+      "it": "Un assistente RAG che interroga normative e regolamenti del settore finanziario e risponde citando il testo di riferimento. Prototipi confrontati su due framework di orchestrazione.",
+      "en": "A RAG assistant that searches financial-sector rules and regulations and answers by quoting the source text. Prototypes compared across two orchestration frameworks."
+    },
+    "stack": [
+      "Python",
+      "LangChain",
+      "LlamaIndex",
+      "ChromaDB",
+      "FastAPI"
+    ],
+    "featured": 5
+  },
+  {
+    "id": "ai-microservices",
+    "year": 2023,
+    "domain": "industry",
+    "kind": "client",
+    "title": {
+      "it": "Piattaforma AI a microservizi per un gruppo industriale",
+      "en": "AI microservice platform for an industrial group"
+    },
+    "summary": {
+      "it": "Un motore di inferenza containerizzato, con un modulo dispatcher che smista le richieste e uno di enrichment che arricchisce i dati prima del modello. Esposto via REST.",
+      "en": "A containerised inference engine, with a dispatcher module that routes requests and an enrichment module that augments data before the model. Exposed over REST."
+    },
+    "stack": [
+      "Python",
+      "Docker",
+      "REST"
+    ]
+  },
+  {
+    "id": "boostme",
+    "year": 2023,
+    "domain": "product",
+    "kind": "product",
+    "title": {
+      "it": "BoostMe: ritratti AI personalizzati",
+      "en": "BoostMe: personalised AI portraits"
+    },
+    "summary": {
+      "it": "App mobile in cui l'utente carica alcune foto e ottiene ritratti generati dall'AI con il proprio volto. Per ogni utente un modello Stable Diffusion viene rifinito con DreamBooth; un dispatcher accende e spegne le istanze GPU su richiesta. Sistema a crediti e foto cancellate dopo una settimana.",
+      "en": "A mobile app where users upload a few photos and get AI-generated portraits of themselves. Each user gets a Stable Diffusion model fine-tuned with DreamBooth; a dispatcher starts and stops GPU instances on demand. Credit-based, with photos deleted after a week."
+    },
+    "stack": [
+      "Ionic",
+      "Angular",
+      "Firebase",
+      "Stable Diffusion",
+      "AWS EC2",
+      "Docker"
+    ],
+    "featured": 3
+  },
+  {
+    "id": "real-estate",
+    "year": 2022,
+    "domain": "realestate",
+    "kind": "client",
+    "title": {
+      "it": "Classificazione di immobili",
+      "en": "Property classification"
+    },
+    "summary": {
+      "it": "Un classificatore che incrocia indirizzi geocodificati, cluster socioeconomici dei comuni e quotazioni di mercato pubbliche. Servito con docker-compose.",
+      "en": "A classifier that combines geocoded addresses, socio-economic clusters of municipalities and public market price data. Served with docker-compose."
+    },
+    "stack": [
+      "Python",
+      "scikit-learn",
+      "Geodata",
+      "Docker"
+    ]
+  },
+  {
+    "id": "obsolescence",
+    "year": 2022,
+    "domain": "industry",
+    "kind": "client",
+    "title": {
+      "it": "Previsione dell'obsolescenza di magazzino",
+      "en": "Inventory obsolescence forecasting"
+    },
+    "summary": {
+      "it": "Per un'azienda manifatturiera: modelli che segnalano in anticipo gli articoli a rischio di diventare obsoleti, così da ridurre il capitale fermo a magazzino.",
+      "en": "For a manufacturer: models that flag items likely to go obsolete early, to cut capital tied up in stock."
+    },
+    "stack": [
+      "Python",
+      "Pandas",
+      "ML"
+    ]
+  },
+  {
+    "id": "air-quality",
+    "year": 2022,
+    "domain": "environment",
+    "kind": "client",
+    "title": {
+      "it": "Previsione del particolato da sensori IoT",
+      "en": "Particulate forecasting from IoT sensors"
+    },
+    "summary": {
+      "it": "Raccolta programmata da sensori di qualità dell'aria e dati meteo, storico su database, previsione dei picchi di PM, grafici automatici e riaddestramento periodico del modello.",
+      "en": "Scheduled collection from air-quality sensors and weather data, stored history, PM spike forecasting, automatic charts and periodic model retraining."
+    },
+    "stack": [
+      "Python",
+      "Flask",
+      "MySQL",
+      "IoT"
+    ]
+  },
+  {
+    "id": "las",
+    "year": 2022,
+    "domain": "platform",
+    "kind": "product",
+    "title": {
+      "it": "LAS Digital Brains: Machine Learning as a Service",
+      "en": "LAS Digital Brains: Machine Learning as a Service"
+    },
+    "summary": {
+      "it": "LAS (Light Artificial System) è una piattaforma API di Machine Learning as a Service: un catalogo di \"cervelli digitali\" pronti da integrare, con abbonamento, portale utente e console di amministrazione. Tra i servizi: estrazione di dati da visure e documenti d'identità, classificazione di testi in italiano con addestramento su dati propri (BERT), topic modeling, previsioni su serie storiche, verifica delle partite IVA, geocodifica e smistamento automatico dei ticket.",
+      "en": "LAS (Light Artificial System) is a Machine Learning as a Service API platform: a catalogue of ready-to-integrate \"digital brains\", with subscriptions, a customer portal and an admin console. Services include data extraction from company records and ID documents, Italian text classification trained on the customer's own data (BERT), topic modelling, time-series forecasting, VAT number checks, geocoding and automatic ticket routing."
+    },
+    "stack": [
+      "Python",
+      "Flask",
+      "BERT",
+      "Ionic",
+      "Angular",
+      "Docker",
+      "AWS Lightsail"
+    ],
+    "featured": 1
+  },
+  {
+    "id": "voice-dating",
+    "year": 2021,
+    "domain": "product",
+    "kind": "client",
+    "title": {
+      "it": "App di incontri basata sulla voce",
+      "en": "Voice-first dating app"
+    },
+    "summary": {
+      "it": "Frontend e motore di machine learning per un'app in cui ci si conosce prima con la voce e poi con la foto.",
+      "en": "Frontend and machine-learning engine for an app where people meet by voice before they see a photo."
+    },
+    "stack": [
+      "Python",
+      "ML",
+      "Audio"
+    ]
+  },
+  {
+    "id": "hotel-similarity",
+    "year": 2021,
+    "domain": "travel",
+    "kind": "client",
+    "title": {
+      "it": "Deduplica di cataloghi alberghieri",
+      "en": "Hotel catalogue deduplication"
+    },
+    "summary": {
+      "it": "Per un operatore del turismo: una pipeline che normalizza elenchi di strutture ricettive da fonti diverse, calcola embedding e riconosce le strutture duplicate o simili.",
+      "en": "For a travel company: a pipeline that normalises accommodation lists from different sources, computes embeddings and matches duplicate or similar properties."
+    },
+    "stack": [
+      "Python",
+      "Embeddings",
+      "SQLite"
+    ]
+  },
+  {
+    "id": "ai-legal",
+    "year": 2021,
+    "domain": "legal",
+    "kind": "product",
+    "title": {
+      "it": "AI Legal: analisi automatica di documenti legali",
+      "en": "AI Legal: automated legal document analysis"
+    },
+    "summary": {
+      "it": "Piattaforma per studi legali che legge fascicoli in PDF, riconosce le entità rilevanti (persone, società, codici fiscali, date) e classifica le frasi per ruolo. Estrae i dati da documenti d'identità e visure camerali e produce un report; un'interfaccia di annotazione permette ai legali di validare i risultati e riaddestrare i modelli.",
+      "en": "A platform for law firms that reads PDF case files, recognises the relevant entities (people, companies, tax codes, dates) and classifies sentences by role. It extracts data from ID documents and company records and produces a report; an annotation interface lets lawyers validate the output and retrain the models."
+    },
+    "stack": [
+      "Python",
+      "Flask",
+      "NER",
+      "Computer vision",
+      "Angular",
+      "Docker",
+      "AWS"
+    ],
+    "featured": 2
+  },
+  {
+    "id": "materials",
+    "year": 2020,
+    "domain": "industry",
+    "kind": "client",
+    "title": {
+      "it": "Previsione della produzione di materiali avanzati",
+      "en": "Advanced materials production forecasting"
+    },
+    "summary": {
+      "it": "Uno strumento predittivo per la resa della produzione di grafene, a partire dai parametri di processo.",
+      "en": "A predictive tool for graphene production yield, driven by process parameters."
+    },
+    "stack": [
+      "Python",
+      "ML"
+    ]
+  },
+  {
+    "id": "manuscripts",
+    "year": 2020,
+    "domain": "culture",
+    "kind": "rnd",
+    "title": {
+      "it": "OCR di manoscritti storici",
+      "en": "OCR for historical manuscripts"
+    },
+    "summary": {
+      "it": "Con un partner tecnologico: riconoscimento dei caratteri in manoscritti medievali con reti convoluzionali, per rendere ricercabili i fondi di un grande archivio.",
+      "en": "With a technology partner: character recognition in medieval manuscripts using convolutional networks, to make a major archive's holdings searchable."
+    },
+    "stack": [
+      "Python",
+      "CNN",
+      "Keras",
+      "OCR"
+    ]
+  },
+  {
+    "id": "shelf-vision",
+    "year": 2020,
+    "domain": "retail",
+    "kind": "client",
+    "title": {
+      "it": "Riconoscimento prodotti per la GDO",
+      "en": "Product recognition for grocery retail"
+    },
+    "summary": {
+      "it": "Object detection di prodotti e marchi nelle immagini, con classificazione nelle categorie alimentari del cliente.",
+      "en": "Object detection of products and brands in images, with classification into the client's food categories."
+    },
+    "stack": [
+      "YOLOv3",
+      "Keras",
+      "OpenCV"
+    ]
+  },
+  {
+    "id": "easy-queue",
+    "year": 2020,
+    "domain": "product",
+    "kind": "product",
+    "title": {
+      "it": "Easy Queue: l'eliminacode letto da una telecamera",
+      "en": "Easy Queue: queue displays read by a camera"
+    },
+    "summary": {
+      "it": "Una telecamera su Raspberry Pi legge il numero del display eliminacode e un'app Android avvisa quando tocca a te. Il detector è addestrato su un dataset sintetico di cifre generato in Blender.",
+      "en": "A camera on a Raspberry Pi reads the ticket display and an Android app tells you when it's your turn. The detector is trained on a synthetic digit dataset rendered in Blender."
+    },
+    "stack": [
+      "YOLO",
+      "Raspberry Pi",
+      "Blender",
+      "Android"
+    ]
+  },
+  {
+    "id": "teaching",
+    "year": 2018,
+    "domain": "training",
+    "kind": "training",
+    "title": {
+      "it": "Formazione su AI e machine learning",
+      "en": "AI and machine learning training"
+    },
+    "summary": {
+      "it": "Materiale didattico per corsi su AI in sanità, reti BiLSTM e regressione logistica, pubblicato come notebook aperti.",
+      "en": "Course material on AI in healthcare, BiLSTM networks and logistic regression, published as open notebooks."
+    },
+    "stack": [
+      "Jupyter",
+      "Python",
+      "Keras"
+    ],
+    "link": "https://github.com/Fluel/AI4health"
+  }
+]

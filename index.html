@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fluel — Portfolio</title>
+<meta name="description" content="Portfolio Fluel: progetti di AI, machine learning e software, descritti senza dati riservati dei clienti.">
+<meta property="og:image" content="banner.png">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blu: #4500ED;        /* Blu Fluel */
+  --orange: #FF8600;     /* gradient end */
+  --lavender: #C9C2FF;   /* gradient midpoint, text on blu */
+  --black: #000;
+  --paper: #F5F3FA;
+  --ink: #140B33;
+  --muted: #5C5677;
+  --line: #DAD5EA;
+  --display: "Rajdhani", sans-serif;
+  --body: "Inter", system-ui, sans-serif;
+  --wrap: 1180px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--paper); }
+body { margin: 0; font: 400 1rem/1.65 var(--body); color: var(--ink); background: var(--paper); }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; border-radius: 4px; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+.sym { width: 1em; height: 1em; flex: none; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: .5em; font: 700 1.05rem/1 var(--display); letter-spacing: .02em; text-decoration: none; padding: 13px 24px 12px; border-radius: 999px; border: 2px solid currentColor; transition: background .15s, color .15s, border-color .15s; }
+.btn.solid { background: #fff; color: var(--blu); border-color: #fff; }
+.btn.solid:hover { background: var(--orange); border-color: var(--orange); color: var(--black); }
+.btn.ghost { color: #fff; }
+.btn.ghost:hover { background: #fff; color: var(--blu); }
+
+/* Hero: a Blu Fluel field with oversized, edge-cropped brand symbols */
+.hero { position: relative; overflow: hidden; background: var(--blu); color: #fff; }
+.hero .shapes { position: absolute; inset: 0; pointer-events: none; }
+.hero .shapes svg { position: absolute; }
+.hero .s1 { width: min(58vw, 640px); height: min(58vw, 640px); right: -6%; top: -18%; }
+.hero .s2 { width: min(34vw, 380px); height: min(34vw, 380px); right: 22%; bottom: -22%; }
+.hero .s3 { width: min(14vw, 150px); height: min(14vw, 150px); right: 3%; bottom: -5%; }
+nav.top { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 26px 0; }
+nav.top img { height: 40px; width: auto; display: block; }
+nav.top ul { display: flex; align-items: center; gap: 26px; list-style: none; margin: 0; padding: 0; font: 600 1.1rem var(--display); }
+nav.top ul a { text-decoration: none; }
+nav.top ul a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.lang { display: inline-flex; border: 1.5px solid rgba(255,255,255,.6); border-radius: 999px; overflow: hidden; }
+.lang button { font: 700 .9rem var(--display); background: none; color: #fff; border: 0; padding: 5px 12px 4px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: #fff; color: var(--blu); }
+.hero-body { position: relative; padding: 72px 0 112px; max-width: 640px; }
+.hero h1 { font: 700 clamp(3.6rem, 10vw, 7.5rem)/.86 var(--display); margin: 0 0 28px; letter-spacing: -.01em; }
+.hero h1 span { display: block; font-size: .3em; font-weight: 600; letter-spacing: .02em; margin-top: 14px; color: var(--lavender); }
+.hero p { font-size: 1.2rem; max-width: 46ch; margin: 0 0 34px; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Section chrome */
+section.block { padding-top: 96px; }
+.head { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; margin-bottom: 36px; }
+.head h2 { display: flex; align-items: center; gap: .35em; font: 700 clamp(2.2rem, 5vw, 3.2rem)/1 var(--display); margin: 0; }
+.head h2 .sym { width: .7em; height: .7em; }
+.head p { margin: 0; max-width: 52ch; color: var(--muted); }
+
+/* Capabilities: the brand's own service artwork */
+.caps { display: grid; grid-template-columns: 1.15fr 1fr 1fr; gap: 16px; }
+.cap { margin: 0; position: relative; }
+.cap img { width: 100%; height: auto; display: block; aspect-ratio: 1280 / 769; border-radius: 18px; }
+.cap figcaption { padding: 12px 4px 0; font-size: .92rem; color: var(--muted); }
+.cap.lead { border-radius: 18px; overflow: hidden; background: var(--blu); color: #fff; grid-row: span 2; display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; min-height: 360px; }
+.cap.lead svg { position: absolute; width: 78%; height: auto; right: -14%; top: -10%; }
+.cap.lead b { font-size: 2rem; position: relative; }
+.cap.lead p { position: relative; margin: 8px 0 0; color: var(--lavender); max-width: 32ch; }
+
+/* Featured work */
+.featured { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.feat { position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 300px; padding: 26px 26px 24px; border-radius: 18px; background: var(--blu); color: #fff; text-decoration: none; isolation: isolate; transition: transform .2s; }
+.feat:hover { transform: translateY(-4px); }
+.feat > svg { position: absolute; z-index: -1; width: 170px; height: 170px; right: -42px; top: -42px; transition: transform .3s; }
+.feat:hover > svg { transform: rotate(-8deg) scale(1.06); }
+.feat .meta { display: flex; gap: 14px; margin-top: auto; font: 600 1rem var(--display); color: var(--lavender); }
+.feat h3 { font: 700 1.75rem/1.02 var(--display); margin: 6px 0 10px; max-width: 14ch; }
+.feat p { margin: 0; font-size: .93rem; max-width: 34ch; color: rgba(255,255,255,.88); }
+.feat:nth-child(3n+2) { background: var(--black); }
+
+/* Full project log */
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+.filters button { display: inline-flex; align-items: center; gap: .45em; font: 700 1rem/1 var(--display); background: #fff; color: var(--ink); border: 1.5px solid var(--line); border-radius: 999px; padding: 9px 16px 8px; cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.projects { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.proj { display: grid; grid-template-columns: 110px 1fr 260px; gap: 28px; padding: 28px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 24px; }
+.proj:target { background: linear-gradient(90deg, rgba(69,0,237,.08), transparent); }
+.proj time { font: 700 2rem/1 var(--display); color: var(--blu); }
+.proj h3 { font: 700 1.5rem/1.1 var(--display); margin: 0 0 8px; }
+.proj p { margin: 0; max-width: 64ch; }
+.proj aside { font-size: .9rem; color: var(--muted); }
+.proj .kind { display: flex; align-items: center; gap: .45em; font: 700 1rem var(--display); color: var(--ink); margin: 0 0 6px; }
+.proj a { font-weight: 600; color: var(--blu); }
+.count { font: 600 1rem var(--display); color: var(--muted); margin: 18px 0 10px; }
+
+.stack { display: block; max-width: 100%; }
+
+/* Contact on black, as in the brand's print pieces */
+.contact { position: relative; overflow: hidden; margin-top: 110px; background: var(--black); color: #fff; padding: 96px 0; }
+.contact > svg { position: absolute; width: 380px; height: 380px; right: -90px; top: -90px; }
+.contact h2 { font: 700 clamp(2.6rem, 6vw, 4.2rem)/1 var(--display); margin: 0 0 16px; position: relative; }
+.contact p { max-width: 48ch; font-size: 1.1rem; margin: 0 0 30px; position: relative; color: rgba(255,255,255,.85); }
+.contact .actions { display: flex; flex-wrap: wrap; gap: 12px; position: relative; }
+.contact .btn.solid { background: var(--orange); border-color: var(--orange); color: var(--black); }
+.contact .btn.solid:hover { background: #fff; border-color: #fff; }
+.contact .btn.ghost:hover { color: var(--black); }
+.contact .fine { margin: 56px 0 0; font-size: .85rem; color: rgba(255,255,255,.6); max-width: 70ch; position: relative; }
+
+@media (max-width: 960px) {
+  .caps { grid-template-columns: 1fr 1fr; }
+  .cap.lead { grid-column: 1 / -1; grid-row: auto; min-height: 280px; }
+  .featured { grid-template-columns: 1fr 1fr; }
+  .proj { grid-template-columns: 90px 1fr; }
+  .proj aside { grid-column: 2; }
+}
+@media (max-width: 640px) {
+  nav.top ul li:not(.keep) { display: none; }
+  .hero-body { padding: 40px 0 150px; }
+  .hero .s1 { width: 250px; height: 250px; right: -100px; top: auto; bottom: -100px; }
+  .hero .s2 { width: 150px; height: 150px; right: 140px; bottom: -85px; }
+  .hero .s3 { display: none; }
+  .caps, .featured { grid-template-columns: 1fr; }
+  .proj { grid-template-columns: 1fr; gap: 8px; }
+  .proj aside { grid-column: auto; }
+  section.block { padding-top: 72px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .feat, .feat > svg { transition: none; }
+  .feat:hover, .feat:hover > svg { transform: none; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="fg" gradientUnits="userSpaceOnUse" x1="0" y1="4" x2="0" y2="96"><stop offset="0" stop-color="#4500ED"/><stop offset="1" stop-color="#FF8600"/></linearGradient>
+    <linearGradient id="fg-soft" gradientUnits="userSpaceOnUse" x1="0" y1="4" x2="0" y2="96"><stop offset="0" stop-color="#C9C2FF"/><stop offset="1" stop-color="#FF8600"/></linearGradient>
+    <symbol id="s-innovazione" viewBox="0 0 100 100"><path d="M27 27H73V73M73 27L27 73" fill="none" stroke="var(--g, url(#fg))" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="s-aiuto" viewBox="0 0 100 100"><path d="M50 13V87M13 50H87" fill="none" stroke="var(--g, url(#fg))" stroke-width="24" stroke-linecap="round"/></symbol>
+    <symbol id="s-consistenza" viewBox="0 0 100 100"><path fill="var(--g, url(#fg))" fill-rule="evenodd" d="M28 8H72A20 20 0 0 1 92 28V72A20 20 0 0 1 72 92H28A20 20 0 0 1 8 72V28A20 20 0 0 1 28 8ZM39 39V61H61V39Z"/></symbol>
+    <symbol id="s-persone" viewBox="0 0 100 100"><g fill="var(--g, url(#fg))"><circle cx="50" cy="50" r="36"/><circle cx="50.0" cy="19.0" r="16"/><circle cx="68.2" cy="24.9" r="16"/><circle cx="79.5" cy="40.4" r="16"/><circle cx="79.5" cy="59.6" r="16"/><circle cx="68.2" cy="75.1" r="16"/><circle cx="50.0" cy="81.0" r="16"/><circle cx="31.8" cy="75.1" r="16"/><circle cx="20.5" cy="59.6" r="16"/><circle cx="20.5" cy="40.4" r="16"/><circle cx="31.8" cy="24.9" r="16"/></g></symbol>
+    <symbol id="s-codice" viewBox="0 0 100 100"><line x1="22" y1="22" x2="78" y2="78" stroke="var(--g, url(#fg))" stroke-width="24" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="hero">
+  <div class="shapes" aria-hidden="true">
+    <svg class="s1" style="--g:url(#fg-soft)"><use href="#s-innovazione"/></svg>
+    <svg class="s2" style="--g:url(#fg-soft)"><use href="#s-persone"/></svg>
+    <svg class="s3" style="--g:url(#fg-soft)"><use href="#s-aiuto"/></svg>
+  </div>
+  <div class="wrap">
+    <nav class="top">
+      <a href="https://fluel.it"><img src="assets/logo-white.png" alt="Fluel — AI Innovation for Business" width="900" height="240"></a>
+      <ul>
+        <li><a href="#skills" data-t="navSkills"></a></li>
+        <li><a href="#work" data-t="navWork"></a></li>
+        <li><a href="#contact" data-t="navContact"></a></li>
+        <li class="keep">
+          <div class="lang" role="group" aria-label="Language">
+            <button type="button" data-lang="it">IT</button>
+            <button type="button" data-lang="en">EN</button>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="hero-body">
+      <h1>portfolio<span data-t="heroSub"></span></h1>
+      <p data-t="lede"></p>
+      <div class="actions">
+        <a class="btn solid" href="#work" data-t="cta"></a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/palange/" rel="me">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="block wrap" id="skills">
+    <div class="head">
+      <h2><svg class="sym" aria-hidden="true"><use href="#s-codice"/></svg><span data-t="skillsTitle"></span></h2>
+      <p data-t="skillsText"></p>
+    </div>
+    <div class="caps">
+      <figure class="cap lead">
+        <svg viewBox="0 0 100 100" aria-hidden="true" style="--g:url(#fg-soft)"><use href="#s-consistenza"/></svg>
+        <b data-t="capLlm"></b>
+        <p data-t="capLlmText"></p>
+      </figure>
+      <figure class="cap"><img src="assets/service-nlp.jpg" alt="natural language processing" loading="lazy" width="960" height="577"><figcaption data-t="capNlpText"></figcaption></figure>
+      <figure class="cap"><img src="assets/service-predictive.jpg" alt="predictive analytics" loading="lazy" width="960" height="577"><figcaption data-t="capPredText"></figcaption></figure>
+      <figure class="cap"><img src="assets/service-vision.jpg" alt="computer vision" loading="lazy" width="960" height="577"><figcaption data-t="capCvText"></figcaption></figure>
+      <figure class="cap"><img src="assets/service-audio.jpg" alt="audio recognition" loading="lazy" width="960" height="577"><figcaption data-t="capAudioText"></figcaption></figure>
+    </div>
+  </section>
+
+  <section class="block wrap" id="featured">
+    <div class="head">
+      <h2><svg class="sym" aria-hidden="true"><use href="#s-innovazione"/></svg><span data-t="featTitle"></span></h2>
+      <p data-t="featText"></p>
+    </div>
+    <div class="featured" id="featuredList"></div>
+  </section>
+
+  <section class="block wrap" id="work">
+    <div class="head">
+      <h2><svg class="sym" aria-hidden="true"><use href="#s-consistenza"/></svg><span data-t="workTitle"></span></h2>
+      <div class="filters" id="filters" role="group"></div>
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <ul class="projects" id="projects"></ul>
+  </section>
+
+  <section class="block wrap" id="stack">
+    <div class="head">
+      <h2><svg class="sym" aria-hidden="true"><use href="#s-persone"/></svg><span data-t="stackTitle"></span></h2>
+    </div>
+    <img class="stack" loading="lazy" alt="Python, TypeScript, JavaScript, Angular, Next.js, React, FastAPI, Flask, Docker, AWS, Firebase, PostgreSQL, MySQL, PyTorch, TensorFlow, scikit-learn, OpenCV, Linux, Blender, Raspberry Pi"
+      src="https://skillicons.dev/icons?i=py,ts,js,angular,nextjs,react,fastapi,flask,docker,aws,firebase,postgres,mysql,pytorch,tensorflow,sklearn,opencv,linux,blender,raspberrypi&perline=10&theme=light">
+  </section>
+</main>
+
+<footer class="contact" id="contact">
+  <svg aria-hidden="true"><use href="#s-aiuto"/></svg>
+  <div class="wrap">
+    <h2 data-t="contactTitle"></h2>
+    <p data-t="contactText"></p>
+    <div class="actions">
+      <a class="btn solid" href="https://www.linkedin.com/in/palange/" rel="me" data-t="linkedin"></a>
+      <a class="btn ghost" href="https://fluel.it">fluel.it</a>
+      <a class="btn ghost" href="https://github.com/Fluel">GitHub</a>
+    </div>
+    <p class="fine" data-t="nda"></p>
+  </div>
+</footer>
+
+<script>
+const T = {
+  it: {
+    navSkills: "competenze", navWork: "progetti", navContact: "contatti",
+    heroSub: "intelligenza artificiale dal 2016",
+    lede: "Progetti di AI, machine learning e software realizzati per aziende e professionisti, insieme ai nostri prodotti e alla ricerca interna. Il codice è privato; qui trovi contesto, soluzione e tecnologie.",
+    cta: "Esplora i progetti",
+    skillsTitle: "competenze",
+    skillsText: "Dalla ricerca al servizio in produzione, con le applicazioni web e mobile che rendono l'AI utilizzabile.",
+    capLlm: "llm, rag e agenti", capLlmText: "Assistenti che rispondono citando le fonti, sistemi multi-agente e automazione di procedure.",
+    capNlp: "natural language processing", capNlpText: "Classificazione, entità e analisi di documenti.",
+    capPred: "predictive analytics", capPredText: "Previsioni su serie storiche, sensori e magazzino.",
+    capCv: "computer vision", capCvText: "Riconoscimento di prodotti, documenti e caratteri.",
+    capAudio: "audio recognition", capAudioText: "Voicebot, sintesi e riconoscimento vocale.",
+    featTitle: "in evidenza", featText: "I prodotti e i progetti più rappresentativi.",
+    workTitle: "tutti i progetti",
+    stackTitle: "tecnologie",
+    all: "Tutti",
+    kinds: { client: "per clienti", product: "prodotti Fluel", rnd: "ricerca", training: "formazione" },
+    kindOne: { client: "progetto per un cliente", product: "prodotto Fluel", rnd: "ricerca e sviluppo", training: "formazione" },
+    count: n => `${n} progetti`,
+    open: "Apri il materiale",
+    contactTitle: "parliamone",
+    contactText: "Per approfondire un progetto o valutare una collaborazione, scrivimi su LinkedIn.",
+    linkedin: "Profilo LinkedIn",
+    nda: "Nomi dei clienti, dati e dettagli riservati sono omessi o generalizzati per rispetto degli accordi di riservatezza."
+  },
+  en: {
+    navSkills: "expertise", navWork: "projects", navContact: "contact",
+    heroSub: "artificial intelligence since 2016",
+    lede: "AI, machine learning and software projects built for companies and professionals, alongside our own products and in-house research. The code is private; here you'll find the context, the solution and the technology.",
+    cta: "Explore the work",
+    skillsTitle: "expertise",
+    skillsText: "From research to production services, with the web and mobile apps that put AI to work.",
+    capLlm: "llm, rag and agents", capLlmText: "Assistants that answer with cited sources, multi-agent systems and process automation.",
+    capNlp: "natural language processing", capNlpText: "Classification, entities and document analysis.",
+    capPred: "predictive analytics", capPredText: "Forecasting for time series, sensors and inventory.",
+    capCv: "computer vision", capCvText: "Recognising products, documents and characters.",
+    capAudio: "audio recognition", capAudioText: "Voicebots, speech synthesis and recognition.",
+    featTitle: "featured", featText: "Our most representative products and projects.",
+    workTitle: "all projects",
+    stackTitle: "tech stack",
+    all: "All",
+    kinds: { client: "client work", product: "Fluel products", rnd: "research", training: "training" },
+    kindOne: { client: "client project", product: "Fluel product", rnd: "research and development", training: "training" },
+    count: n => `${n} projects`,
+    open: "Open the material",
+    contactTitle: "let's talk",
+    contactText: "To discuss a project in more depth or explore a collaboration, reach me on LinkedIn.",
+    linkedin: "LinkedIn profile",
+    nda: "Client names, data and confidential details are omitted or generalised to honour non-disclosure agreements."
+  }
+};
+const SYM = { client: "persone", product: "innovazione", rnd: "consistenza", training: "aiuto" };
+const sym = (k, cls = "sym") => `<svg class="${cls}" aria-hidden="true"><use href="#s-${SYM[k]}"/></svg>`;
+const firstSentence = s => s.split(/(?<=\.)\s/)[0];
+const $ = s => document.querySelector(s);
+let projects = [], lang = "it", filter = "all";
+try { lang = localStorage.getItem("lang") || ""; } catch {}
+lang = new URLSearchParams(location.search).get("lang") || lang || (navigator.language.startsWith("it") ? "it" : "en");
+if (!T[lang]) lang = "en";
+
+function drawFeatured() {
+  const t = T[lang];
+  $("#featuredList").replaceChildren(...projects.filter(p => p.featured).sort((a, b) => a.featured - b.featured).map(p => {
+    const a = document.createElement("a"); a.className = "feat"; a.href = `#p-${p.id}`;
+    a.innerHTML = `<svg viewBox="0 0 100 100" aria-hidden="true" style="--g:url(#fg-soft)"><use href="#s-${SYM[p.kind]}"/></svg><div class="meta"><span></span><span></span></div><h3></h3><p></p>`;
+    const [k, y] = a.querySelectorAll(".meta span");
+    k.textContent = p.year; y.textContent = t.kindOne[p.kind];
+    a.querySelector("h3").textContent = p.title[lang].split(":")[0];
+    a.querySelector("p").textContent = firstSentence(p.summary[lang]);
+    return a;
+  }));
+}
+
+function drawProjects() {
+  const t = T[lang];
+  const f = $("#filters"); f.setAttribute("aria-label", t.workTitle);
+  f.replaceChildren(...["all", ...Object.keys(t.kinds)].map(k => {
+    const b = document.createElement("button");
+    b.type = "button"; b.innerHTML = k === "all" ? "" : sym(k);
+    b.append(k === "all" ? t.all : t.kinds[k]);
+    b.setAttribute("aria-pressed", filter === k);
+    b.onclick = () => { filter = k; drawProjects(); };
+    return b;
+  }));
+  const shown = projects.filter(p => filter === "all" || p.kind === filter);
+  $("#count").textContent = t.count(shown.length);
+  $("#projects").replaceChildren(...shown.map(p => {
+    const li = document.createElement("li"); li.className = "proj"; li.id = `p-${p.id}`;
+    li.innerHTML = `<time></time><div><h3></h3><p></p></div><aside><p class="kind"></p><span class="tech"></span></aside>`;
+    li.querySelector("time").textContent = p.year;
+    li.querySelector("h3").textContent = p.title[lang];
+    li.querySelector("div p").textContent = p.summary[lang];
+    li.querySelector(".kind").innerHTML = sym(p.kind);
+    li.querySelector(".kind").append(t.kindOne[p.kind]);
+    li.querySelector(".tech").textContent = p.stack.join(" · ");
+    if (p.link) { const a = document.createElement("a"); a.href = p.link; a.textContent = t.open; li.querySelector("div").append(a); }
+    return li;
+  }));
+}
+
+function render() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-t]").forEach(n => n.textContent = T[lang][n.dataset.t]);
+  document.querySelectorAll(".lang button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+  drawFeatured(); drawProjects();
+}
+
+document.querySelectorAll(".lang button").forEach(b => b.onclick = () => {
+  lang = b.dataset.lang; try { localStorage.setItem("lang", lang); } catch {}
+  render();
+});
+
+fetch("projects.json").then(r => r.json()).then(d => {
+  projects = d.sort((a, b) => b.year - a.year);
+  render();
+  if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
+});
+</script>
+</body>
+</html>
