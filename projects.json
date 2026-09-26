@@ -244,8 +244,7 @@
       "ChromaDB",
       "FastAPI"
     ],
-    "featured": 5,
-    "personal": true
+    "featured": 5
   },
   {
     "id": "ai-microservices",
