@@ -16,7 +16,8 @@
       "JavaScript",
       "LLM",
       "Canvas"
-    ]
+    ],
+    "personal": true
   },
   {
     "id": "fitness-recomp",
@@ -35,7 +36,8 @@
       "TypeScript",
       "Expo",
       "React Native"
-    ]
+    ],
+    "personal": true
   },
   {
     "id": "knai",
@@ -57,7 +59,8 @@
       "Playwright",
       "PostgreSQL"
     ],
-    "featured": 4
+    "featured": 4,
+    "personal": true
   },
   {
     "id": "ternary-llm",
@@ -76,7 +79,8 @@
       "PyTorch",
       "Qwen",
       "WebGPU"
-    ]
+    ],
+    "personal": true
   },
   {
     "id": "multiagent-architect",
@@ -95,7 +99,8 @@
       "Python",
       "Multi-agent",
       "LLM"
-    ]
+    ],
+    "personal": true
   },
   {
     "id": "heritage-rag",
@@ -116,7 +121,8 @@
       "RAG",
       "TTS"
     ],
-    "featured": 6
+    "featured": 6,
+    "personal": true
   },
   {
     "id": "green-slm",
@@ -135,7 +141,8 @@
       "Python",
       "SLM",
       "RAG"
-    ]
+    ],
+    "personal": true
   },
   {
     "id": "crypto-agent",
@@ -155,7 +162,8 @@
       "TimescaleDB",
       "LLM",
       "Telegram"
-    ]
+    ],
+    "personal": true
   },
   {
     "id": "bank-rag",
@@ -174,7 +182,8 @@
       "Python",
       "RAG",
       "Vector DB"
-    ]
+    ],
+    "personal": true
   },
   {
     "id": "short-video",
@@ -194,7 +203,8 @@
       "Computer vision",
       "TTS",
       "LLM"
-    ]
+    ],
+    "personal": true
   },
   {
     "id": "voicebot",
@@ -213,7 +223,8 @@
       "Rasa",
       "Python",
       "Speech"
-    ]
+    ],
+    "personal": true
   },
   {
     "id": "regula",
@@ -235,7 +246,8 @@
       "ChromaDB",
       "FastAPI"
     ],
-    "featured": 5
+    "featured": 5,
+    "personal": true
   },
   {
     "id": "ai-microservices",

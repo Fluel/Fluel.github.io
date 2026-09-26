@@ -76,8 +76,8 @@ section.block { padding-top: 96px; }
 .cap h3 { font: 600 1.55rem/1.05 var(--display); margin: 0 0 10px; }
 .cap p { margin: 0 0 22px; color: var(--muted); font-size: .95rem; }
 .cap ul { list-style: none; margin: 0; padding: 16px 0 0; border-top: 1px solid var(--line); display: grid; gap: 8px; align-content: start; }
-.cap ul a { display: flex; align-items: baseline; gap: .5em; font-size: .92rem; font-weight: 500; color: var(--blu); text-decoration: none; }
-.cap ul a::before { content: ""; flex: none; width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(var(--blu), var(--orange)); transform: translateY(-2px); }
+.cap ul a { position: relative; display: block; padding-left: 14px; font-size: .92rem; font-weight: 500; color: var(--blu); text-decoration: none; }
+.cap ul a::before { content: ""; position: absolute; left: 0; top: .6em; width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(var(--blu), var(--orange)); }
 .cap ul a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Featured: indigo blocks, gradient only on the symbol */
@@ -87,19 +87,19 @@ section.block { padding-top: 96px; }
 .feat:hover { transform: translateY(-4px); }
 .feat > svg { position: absolute; z-index: -1; width: 170px; height: 170px; right: -42px; top: -42px; transition: transform .3s; }
 .feat:hover > svg { transform: rotate(-8deg) scale(1.06); }
-.feat .meta { display: flex; gap: 14px; font: 500 1rem var(--display); letter-spacing: .02em; color: var(--lavender); }
+.feat .meta { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; font: 500 1rem var(--display); letter-spacing: .02em; color: var(--lavender); }
 .feat h3 { font: 600 1.7rem/1.04 var(--display); margin: 6px 0 12px; }
 .feat p { margin: 0; font-size: .93rem; color: rgba(255,255,255,.9); }
 
 /* Timeline overview: one column per year, one symbol per project */
-.overview { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; align-items: end; gap: 8px; padding: 28px 28px 0; background: #fff; border: 1px solid var(--line); border-radius: 18px; margin-bottom: 20px; }
-.overview .col { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.overview { position: relative; display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; align-items: stretch; gap: 0; padding: 56px 28px 0; background: #fff; border: 1px solid var(--line); border-radius: 18px; margin-bottom: 20px; }
+.overview .col { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 8px; padding: 14px 4px 0; }
 .overview .stack { display: flex; flex-direction: column-reverse; align-items: center; gap: 6px; min-height: 24px; }
 .overview .stack a { display: block; width: 26px; height: 26px; border-radius: 8px; transition: transform .15s; }
 .overview .stack a:hover, .overview .stack a:focus-visible { transform: scale(1.25); }
 .overview .stack svg { width: 100%; height: 100%; display: block; }
 .overview .stack a.dim { opacity: .18; }
-.overview .year { width: 100%; text-align: center; font: 500 1.05rem var(--display); color: var(--muted); padding: 10px 0 14px; border-top: 2px solid var(--rail); }
+.overview .year { width: calc(100% - 8px); text-align: center; font: 500 1.05rem var(--display); color: var(--muted); padding: 10px 0 14px; border-top: 2px solid var(--rail); }
 .overview .col.has .year { color: var(--blu); border-top-color: var(--blu); }
 .tip { position: fixed; z-index: 10; pointer-events: none; max-width: 260px; font-size: .85rem; line-height: 1.35; background: var(--blu); color: #fff; padding: 8px 12px; border-radius: 10px; opacity: 0; transition: opacity .12s; }
 .tip.on { opacity: 1; }
@@ -126,13 +126,26 @@ section.block { padding-top: 96px; }
 .tl .item:nth-child(odd of .item) .card::after { right: -21px; }
 .tl .item:nth-child(even of .item) .card::after { left: -21px; }
 .tl .item:target .card { border-color: var(--blu); box-shadow: 0 0 0 3px rgba(69,0,237,.12); }
-.tl .kind { font: 500 .95rem var(--display); letter-spacing: .02em; color: var(--blu); margin: 0 0 4px; }
+.tl .kind { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; font: 500 .95rem var(--display); letter-spacing: .02em; color: var(--blu); margin: 0 0 4px; }
+.tl .kind .chip, .feat .meta .chip { margin-left: 0; vertical-align: 0; }
 .tl h3 { font: 600 1.4rem/1.1 var(--display); margin: 0 0 8px; }
 .tl p { margin: 0 0 10px; font-size: .95rem; }
 .tl .tech { font-size: .85rem; color: var(--muted); margin: 0; }
 .tl .card a { font-weight: 500; color: var(--blu); font-size: .92rem; }
 
 .techstack { display: block; max-width: 100%; }
+
+/* "personal project" chip: an outline accent, never a filled block */
+.chip { display: inline-block; vertical-align: .2em; margin-left: .5em; font: 500 .78rem/1 var(--display); letter-spacing: .04em; white-space: nowrap; color: var(--orange); border: 1px solid var(--orange); border-radius: 999px; padding: 4px 9px 3px; }
+.feat .chip { color: #fff; border-color: rgba(255,255,255,.7); }
+.cap ul .chip { vertical-align: .1em; margin-left: .4em; font-size: .72rem; padding: 3px 7px 2px; }
+.overview .col.personal { position: relative; background: rgba(255,134,0,.07); }
+.overview .col.personal.first { border-top-left-radius: 12px; }
+.overview .col.personal.last { border-top-right-radius: 12px; }
+.overview .band { position: absolute; left: 0; top: -12px; transform: translateY(-100%); display: flex; align-items: center; gap: 8px; font: 500 .9rem var(--display); letter-spacing: .03em; color: var(--orange); white-space: nowrap; }
+.overview .band::after { content: ""; flex: 1; height: 1px; background: var(--orange); opacity: .5; }
+.hero .note { display: inline-flex; align-items: center; gap: 10px; font-size: .95rem; color: var(--lavender); margin: -14px 0 30px; }
+.hero .note .chip { margin: 0; color: #fff; border-color: rgba(255,255,255,.7); }
 
 /* Contact: indigo block */
 .contact { position: relative; overflow: hidden; margin-top: 110px; background: var(--blu); color: #fff; padding: 96px 0; }
@@ -154,7 +167,7 @@ section.block { padding-top: 96px; }
   .tl .node { grid-column: 1; }
   .tl .item:nth-child(n of .item) .card { grid-column: 2; }
   .tl .item:nth-child(n of .item) .card::after { left: -17px; right: auto; width: 16px; }
-  .overview { padding: 20px 12px 0; gap: 4px; }
+  .overview { padding: 48px 12px 0; }
   .overview .stack a { width: 20px; height: 20px; }
 }
 @media (max-width: 640px) {
@@ -214,6 +227,7 @@ section.block { padding-top: 96px; }
     <div class="hero-body">
       <h1>portfolio<span data-t="heroSub"></span></h1>
       <p data-t="lede"></p>
+      <p class="note"><span class="chip" data-t="chip"></span><span data-t="personalNote"></span></p>
       <div class="actions">
         <a class="btn solid" href="#work" data-t="cta"></a>
         <a class="btn ghost" href="https://www.linkedin.com/in/palange/" rel="me">LinkedIn</a>
@@ -282,6 +296,11 @@ const T = {
     heroSub: "intelligenza artificiale dal 2016",
     lede: "Progetti di AI, machine learning e software realizzati per aziende e professionisti, insieme ai nostri prodotti e alla ricerca interna. Il codice è privato; qui trovi contesto, soluzione e tecnologie.",
     cta: "Esplora i progetti",
+    chip: "progetto personale",
+    personalNote: "Dal 2024 questo è un portfolio personale: i progetti non sono attività aziendali.",
+    personalBand: "dal 2024: progetti personali",
+    personalFilter: "personali",
+    chipShort: "personale",
     skillsTitle: "competenze",
     skillsText: "Dalla ricerca al servizio in produzione, con le applicazioni web e mobile che rendono l'AI utilizzabile.",
     featTitle: "in evidenza", featText: "I prodotti e i progetti più rappresentativi.",
@@ -290,6 +309,7 @@ const T = {
     all: "Tutti",
     kinds: { client: "per clienti", product: "prodotti Fluel", rnd: "ricerca", training: "formazione" },
     kindOne: { client: "progetto per un cliente", product: "prodotto Fluel", rnd: "ricerca e sviluppo", training: "formazione" },
+    kindPersonal: { product: "prodotto" },
     count: n => `${n} progetti`,
     open: "Apri il materiale",
     contactTitle: "parliamone",
@@ -302,6 +322,11 @@ const T = {
     heroSub: "artificial intelligence since 2016",
     lede: "AI, machine learning and software projects built for companies and professionals, alongside our own products and in-house research. The code is private; here you'll find the context, the solution and the technology.",
     cta: "Explore the work",
+    chip: "personal project",
+    personalNote: "Since 2024 this is a personal portfolio: the projects are not business work.",
+    personalBand: "since 2024: personal projects",
+    personalFilter: "personal",
+    chipShort: "personal",
     skillsTitle: "expertise",
     skillsText: "From research to production services, with the web and mobile apps that put AI to work.",
     featTitle: "featured", featText: "Our most representative products and projects.",
@@ -310,6 +335,7 @@ const T = {
     all: "All",
     kinds: { client: "client work", product: "Fluel products", rnd: "research", training: "training" },
     kindOne: { client: "client project", product: "Fluel product", rnd: "research and development", training: "training" },
+    kindPersonal: { product: "product" },
     count: n => `${n} projects`,
     open: "Open the material",
     contactTitle: "let's talk",
@@ -340,6 +366,9 @@ const CAPS = [
 ];
 const SYM = { client: "persone", product: "innovazione", rnd: "consistenza", training: "aiuto" };
 const icon = (name, soft) => `<svg viewBox="0 0 100 100" aria-hidden="true"${soft ? ' style="--g:url(#fg-soft)"' : ""}><use href="#s-${name}"/></svg>`;
+const chip = (short) => { const c = document.createElement("span"); c.className = "chip"; c.textContent = short ? T[lang].chipShort : T[lang].chip; return c; };
+const kindLabel = p => (p.personal && T[lang].kindPersonal[p.kind]) || T[lang].kindOne[p.kind];
+const matches = p => filter === "all" || (filter === "personal" ? p.personal : p.kind === filter);
 const firstSentence = s => s.split(/(?<=\.)\s/)[0];
 const $ = s => document.querySelector(s);
 let projects = [], lang = "it", filter = "all";
@@ -357,6 +386,7 @@ function drawCaps() {
     li.querySelector("ul").append(...c.ids.filter(id => byId[id]).map(id => {
       const item = document.createElement("li"), a = document.createElement("a");
       a.href = `#p-${id}`; a.textContent = byId[id].title[lang].split(":")[0];
+      if (byId[id].personal) a.append(chip(true));
       item.append(a); return item;
     }));
     return li;
@@ -369,8 +399,9 @@ function drawFeatured() {
     const a = document.createElement("a"); a.className = "feat"; a.href = `#p-${p.id}`;
     a.innerHTML = `${icon(SYM[p.kind], true)}<div class="meta"><span></span><span></span></div><h3></h3><p></p>`;
     const [y, k] = a.querySelectorAll(".meta span");
-    y.textContent = p.year; k.textContent = t.kindOne[p.kind];
+    y.textContent = p.year; k.textContent = kindLabel(p);
     a.querySelector("h3").textContent = p.title[lang].split(":")[0];
+    if (p.personal) a.querySelector(".meta").append(chip());
     a.querySelector("p").textContent = firstSentence(p.summary[lang]);
     return a;
   }));
@@ -383,17 +414,25 @@ function drawOverview() {
   for (let y = Math.min(...years); y <= Math.max(...years); y++) {
     const col = document.createElement("div"), stack = document.createElement("div"), label = document.createElement("div");
     const here = projects.filter(p => p.year === y);
-    col.className = "col" + (here.length ? " has" : ""); stack.className = "stack"; label.className = "year"; label.textContent = y;
+    const personal = here.some(p => p.personal);
+    col.className = "col" + (here.length ? " has" : "") + (personal ? " personal" : ""); stack.className = "stack"; label.className = "year"; label.textContent = y;
     stack.append(...here.map(p => {
       const a = document.createElement("a"); a.href = `#p-${p.id}`; a.tabIndex = -1;
       a.innerHTML = icon(SYM[p.kind]);
-      if (filter !== "all" && p.kind !== filter) a.classList.add("dim");
-      a.onmouseenter = e => { tip.innerHTML = `<b></b>`; tip.firstChild.textContent = `${p.year} / ${t.kindOne[p.kind]}`; tip.append(p.title[lang]); tip.classList.add("on"); };
+      if (!matches(p)) a.classList.add("dim");
+      a.onmouseenter = e => { tip.innerHTML = `<b></b>`; tip.firstChild.textContent = `${p.year} / ${kindLabel(p)}${p.personal ? ` / ${t.chip}` : ""}`; tip.append(p.title[lang]); tip.classList.add("on"); };
       a.onmousemove = e => { tip.style.left = Math.min(e.clientX + 14, innerWidth - 280) + "px"; tip.style.top = e.clientY + 16 + "px"; };
       a.onmouseleave = () => tip.classList.remove("on");
       return a;
     }));
     col.append(stack, label); cols.push(col);
+  }
+  const band = cols.filter(c => c.classList.contains("personal"));
+  if (band.length) {
+    band[0].classList.add("first"); band.at(-1).classList.add("last");
+    const label = document.createElement("div"); label.className = "band"; label.textContent = t.personalBand;
+    label.style.width = `${band.length * 100}%`;
+    band[0].append(label);
   }
   $("#overview").replaceChildren(...cols);
 }
@@ -401,15 +440,15 @@ function drawOverview() {
 function drawTimeline() {
   const t = T[lang];
   const f = $("#filters"); f.setAttribute("aria-label", t.workTitle);
-  f.replaceChildren(...["all", ...Object.keys(t.kinds)].map(k => {
+  f.replaceChildren(...["all", ...Object.keys(t.kinds), "personal"].map(k => {
     const b = document.createElement("button");
-    b.type = "button"; b.innerHTML = k === "all" ? "" : icon(SYM[k]).replace("<svg", '<svg class="sym"');
-    b.append(k === "all" ? t.all : t.kinds[k]);
+    b.type = "button"; b.innerHTML = SYM[k] ? icon(SYM[k]).replace("<svg", '<svg class="sym"') : "";
+    b.append(k === "all" ? t.all : k === "personal" ? t.personalFilter : t.kinds[k]);
     b.setAttribute("aria-pressed", filter === k);
     b.onclick = () => { filter = k; drawOverview(); drawTimeline(); };
     return b;
   }));
-  const shown = projects.filter(p => filter === "all" || p.kind === filter);
+  const shown = projects.filter(matches);
   $("#count").textContent = t.count(shown.length);
   const out = []; let year;
   for (const p of shown) {
@@ -420,8 +459,9 @@ function drawTimeline() {
     }
     const li = document.createElement("li"); li.className = "item"; li.id = `p-${p.id}`;
     li.innerHTML = `<div class="node">${icon(SYM[p.kind])}</div><article class="card"><p class="kind"></p><h3></h3><p class="sum"></p><p class="tech"></p></article>`;
-    li.querySelector(".kind").textContent = `${p.year} / ${t.kindOne[p.kind]}`;
+    li.querySelector(".kind").textContent = `${p.year} / ${kindLabel(p)}`;
     li.querySelector("h3").textContent = p.title[lang];
+    if (p.personal) li.querySelector(".kind").append(chip());
     li.querySelector(".sum").textContent = p.summary[lang];
     li.querySelector(".tech").textContent = p.stack.join(" · ");
     if (p.link) { const a = document.createElement("a"); a.href = p.link; a.textContent = t.open; li.querySelector(".card").append(a); }
