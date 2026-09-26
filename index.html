@@ -15,7 +15,7 @@
   --blu: #4500ED;        /* Blu Fluel */
   --orange: #FF8600;     /* gradient end */
   --lavender: #C9C2FF;   /* gradient midpoint, text on blu */
-  --black: #000;
+  --night: #1B1052;     /* deep Blu Fluel, replaces black */
   --paper: #F5F3FA;
   --ink: #140B33;
   --muted: #5C5677;
@@ -35,7 +35,7 @@ a { color: inherit; }
 /* Buttons */
 .btn { display: inline-flex; align-items: center; gap: .5em; font: 700 1.05rem/1 var(--display); letter-spacing: .02em; text-decoration: none; padding: 13px 24px 12px; border-radius: 999px; border: 2px solid currentColor; transition: background .15s, color .15s, border-color .15s; }
 .btn.solid { background: #fff; color: var(--blu); border-color: #fff; }
-.btn.solid:hover { background: var(--orange); border-color: var(--orange); color: var(--black); }
+.btn.solid:hover { background: var(--orange); border-color: var(--orange); color: var(--night); }
 .btn.ghost { color: #fff; }
 .btn.ghost:hover { background: #fff; color: var(--blu); }
 
@@ -86,13 +86,13 @@ section.block { padding-top: 96px; }
 .feat .meta { display: flex; gap: 14px; margin-top: auto; font: 600 1rem var(--display); color: var(--lavender); }
 .feat h3 { font: 700 1.75rem/1.02 var(--display); margin: 6px 0 10px; max-width: 14ch; }
 .feat p { margin: 0; font-size: .93rem; max-width: 34ch; color: rgba(255,255,255,.88); }
-.feat:nth-child(3n+2) { background: var(--black); }
+.feat:nth-child(3n+2) { background: var(--night); }
 
 /* Full project log */
 .filters { display: flex; flex-wrap: wrap; gap: 8px; }
 .filters button { display: inline-flex; align-items: center; gap: .45em; font: 700 1rem/1 var(--display); background: #fff; color: var(--ink); border: 1.5px solid var(--line); border-radius: 999px; padding: 9px 16px 8px; cursor: pointer; }
-.filters button[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
-.projects { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.filters button[aria-pressed="true"] { background: var(--blu); color: #fff; border-color: var(--blu); }
+.projects { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--blu); }
 .proj { display: grid; grid-template-columns: 110px 1fr 260px; gap: 28px; padding: 28px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 24px; }
 .proj:target { background: linear-gradient(90deg, rgba(69,0,237,.08), transparent); }
 .proj time { font: 700 2rem/1 var(--display); color: var(--blu); }
@@ -105,15 +105,15 @@ section.block { padding-top: 96px; }
 
 .stack { display: block; max-width: 100%; }
 
-/* Contact on black, as in the brand's print pieces */
-.contact { position: relative; overflow: hidden; margin-top: 110px; background: var(--black); color: #fff; padding: 96px 0; }
+/* Contact on deep indigo */
+.contact { position: relative; overflow: hidden; margin-top: 110px; background: var(--night); color: #fff; padding: 96px 0; }
 .contact > svg { position: absolute; width: 380px; height: 380px; right: -90px; top: -90px; }
 .contact h2 { font: 700 clamp(2.6rem, 6vw, 4.2rem)/1 var(--display); margin: 0 0 16px; position: relative; }
 .contact p { max-width: 48ch; font-size: 1.1rem; margin: 0 0 30px; position: relative; color: rgba(255,255,255,.85); }
 .contact .actions { display: flex; flex-wrap: wrap; gap: 12px; position: relative; }
-.contact .btn.solid { background: var(--orange); border-color: var(--orange); color: var(--black); }
+.contact .btn.solid { background: var(--orange); border-color: var(--orange); color: var(--night); }
 .contact .btn.solid:hover { background: #fff; border-color: #fff; }
-.contact .btn.ghost:hover { color: var(--black); }
+.contact .btn.ghost:hover { color: var(--night); }
 .contact .fine { margin: 56px 0 0; font-size: .85rem; color: rgba(255,255,255,.6); max-width: 70ch; position: relative; }
 
 @media (max-width: 960px) {
