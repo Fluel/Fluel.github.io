@@ -182,8 +182,7 @@
       "Python",
       "RAG",
       "Vector DB"
-    ],
-    "personal": true
+    ]
   },
   {
     "id": "short-video",
@@ -223,8 +222,7 @@
       "Rasa",
       "Python",
       "Speech"
-    ],
-    "personal": true
+    ]
   },
   {
     "id": "regula",
