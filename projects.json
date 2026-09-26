@@ -106,14 +106,14 @@
     "id": "heritage-rag",
     "year": 2025,
     "domain": "culture",
-    "kind": "client",
+    "kind": "rnd",
     "title": {
       "it": "Storie del patrimonio culturale, a voce",
       "en": "Cultural heritage stories, spoken"
     },
     "summary": {
-      "it": "Per un ente di ricerca: un assistente RAG risponde su secoli di primati storici di una città a partire da schede curate, e con la sintesi vocale diventa una guida parlante.",
-      "en": "For a research institute: a RAG assistant answers questions about a city's historical firsts from curated records, and text-to-speech turns it into a talking guide."
+      "it": "Progetto di ricerca: un assistente RAG risponde su secoli di primati storici di una città a partire da schede curate, e con la sintesi vocale diventa una guida parlante.",
+      "en": "Research project: a RAG assistant answers questions about a city's historical firsts from curated records, and text-to-speech turns it into a talking guide."
     },
     "stack": [
       "Python",
