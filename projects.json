@@ -45,19 +45,16 @@
     "domain": "product",
     "kind": "product",
     "title": {
-      "it": "KNAI: procedure web eseguite da agenti",
-      "en": "KNAI: web procedures run by agents"
+      "it": "KNAI: progetto agentico in stealth",
+      "en": "KNAI: stealth agentic project"
     },
     "summary": {
-      "it": "Si registra una procedura nel browser una volta; KNAI la trasforma in un workflow versionato e approvato, la esegue in sessioni browser isolate e permette a un operatore di supervisionare e intervenire da una dashboard. In sviluppo.",
-      "en": "Record a browser procedure once; KNAI turns it into a versioned, approved workflow, runs it in isolated browser sessions and lets an operator supervise and step in from a dashboard. In development."
+      "it": "Progetto personale in modalità stealth nel campo degli agenti AI. Dettagli disponibili su richiesta.",
+      "en": "A personal project in stealth mode, in the AI agents space. Details available on request."
     },
     "stack": [
       "Python",
-      "FastAPI",
-      "Next.js",
-      "Playwright",
-      "PostgreSQL"
+      "AI agents"
     ],
     "featured": 4,
     "personal": true
